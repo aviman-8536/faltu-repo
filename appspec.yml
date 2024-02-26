@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html
+hooks:
+  AfterInstall:
+    - location: install_nginx.sh
+      timeout: 300
+      runas: ubuntu
+      # - cp /home/ec2-user/myapp/aviman.html /var/www/html/aviman.html
+  APPlicationstart:
+    - location: start_nginx.sh
+      timeout: 300
+      runas: ubuntu    
